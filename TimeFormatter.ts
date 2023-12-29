@@ -23,7 +23,7 @@ export class TimeFormatter {
      * @returns The formatted time unit as a string.
      * @private
      */
-    private static getFormattedTime(time: number): string {
+    private getFormattedTime(time: number): string {
         if (time < 10) return `0${time}`;
         return `${time}`;
     }
@@ -34,7 +34,7 @@ export class TimeFormatter {
      */
     get seconds(): string {
         const seconds = this.initialTime % 60;
-        return TimeFormatter.getFormattedTime(seconds);
+        return this.getFormattedTime(seconds);
     }
 
     /**
@@ -43,7 +43,7 @@ export class TimeFormatter {
      */
     get minutes(): string {
         const minutes = Math.floor((this.initialTime / 60) % 60);
-        return TimeFormatter.getFormattedTime(minutes);
+        return this.getFormattedTime(minutes);
     }
 
     /**
@@ -52,6 +52,6 @@ export class TimeFormatter {
      */
     get hours(): string {
         const hours = Math.floor(this.initialTime / 3600);
-        return TimeFormatter.getFormattedTime(hours);
+        return this.getFormattedTime(hours);
     }
 }
